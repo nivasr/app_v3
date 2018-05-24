@@ -1,0 +1,4 @@
+/scans/*
+/log/*
+*.pyc
+.DS_Store

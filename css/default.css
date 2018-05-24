@@ -1,0 +1,83 @@
+.ui-widget{ font-size: .8em; }
+
+body
+{
+    font-family: "Avenir Next", "Helvetica Neue", Tahoma, Helvetica, Verdana, Arial, "Sans Serif";
+}
+form
+{
+    margin: 2em;
+    border: 1px solid #ededed;
+    width: 35em;
+    float: left;
+}
+
+form label
+{
+    display: inline-block;
+    width: 30%;
+    text-align: right;
+}
+
+form ol
+{
+    margin: 0;
+    padding: 0;
+}
+
+form li
+{
+    list-style: none;
+    margin: 0;
+    margin-top: .5em;
+}
+
+form ol li ol
+{
+    margin-left: 3em;
+    margin-top: .25em;
+    padding: 0;
+}
+
+
+form ol li ol li
+{
+    padding: 0;
+}
+
+div.actions
+{
+    text-align: right;
+    margin: .5em;
+}
+
+.secondaryLabel
+{
+    width: auto;
+}
+
+input[type=text]
+{
+}
+
+input[type=radio]
+{
+}
+
+input[type=number]
+{
+    width: 5em;
+    text-align: right;
+}
+
+.error
+{
+    color: rgb(190, 0, 0);
+    background-color: rgb(245, 236, 236);
+    margin: .5em;
+}
+
+#downloadLink
+{
+    padding: .5em;
+}
