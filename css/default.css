@@ -81,3 +81,8 @@ input[type=number]
 {
     padding: .5em;
 }
+
+i.cog
+{
+    color: #1c94c4;
+}
