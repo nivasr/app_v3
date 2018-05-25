@@ -127,6 +127,7 @@
 				$("#formats").buttonset();
 				$("#doPreview").button();
 				$("#doScan").button();
+				$("#showScan").button();
 				$(document).tooltip();
 			});
 
@@ -134,7 +135,7 @@
 				
 				$("#showOptions").click(function (event) {
 					event.preventDefault();
-					$("#options").show();
+					$("#options").toggle();
 				});
 				
 				$("#doScan").click(function (event) {
