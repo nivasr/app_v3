@@ -14,7 +14,7 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
     def do_GET(self):
         parsedParameters = urlparse.urlparse(self.path)
         queryParsed = urlparse.parse_qs(parsedParameters.query)
-        print "[doGet]Query Parameters:", queryParsed
+        print "[doGet] Query Parameters:", queryParsed
         if len(queryParsed) == 0:
             SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET(self);
         else:
@@ -60,7 +60,7 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
             preview = True;
 
         if(l < 0 or t < 0 or width < 0 or height < 0):
-            print "[processOperation] At least one Page Dim not present, taking default"
+            print "[processOperation] At least one page dimension not present, taking default"
             pageDims = False;
         else:
             pageDims = True
@@ -81,7 +81,7 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
             if(l < 0 or t < 0 or width < 0 or height < 0):
                 try:
                     out = subprocess.check_output(["sh", "scan.sh", fileName, format, scanMode, str(resolution), unit])
-                    print "[processOperation] output from scan:", out
+                    print "[processOperation] ", out
                     self.sendSuccessResponse(fileName + "." + format)
                 except CalledProcessError:
                     print "[processOperation] Error scanning.", sys.exc_info()[0]
@@ -93,7 +93,7 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
                     self.sendSuccessResponse(fileName + "." + format)
                 except CalledProcessError:
                     print "[processOperation] Error scanning.", sys.exc_info()[0]
-                    self.sendErrorResponse("[processOperation] Error while trying to preview/scan. Check if the scanner is connected and powered up");
+                    self.sendErrorResponse("[processOperation] Error while trying to preview or scan. Check if the scanner is connected and powered up");
             
             print "[processOperation] scanned, output from shell: ", out
             
