@@ -10,14 +10,14 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
     def do_POST(self):
         parsedParameters = urlparse.urlparse(self.path)
         queryParsed = urlparse.parse_qs(parsedParameters.query)
-        self.processOperation(queryParsed);
+        self.processOperation(queryParsed)
 
     def do_GET(self):
         parsedParameters = urlparse.urlparse(self.path)
         queryParsed = urlparse.parse_qs(parsedParameters.query)
         print "[doGet] Query Parameters:", queryParsed
         if len(queryParsed) == 0:
-            SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET(self);
+            SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET(self)
         else:
             self.processOperation(queryParsed)
     
@@ -35,7 +35,7 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         width = -1
         height = -1
         format = "pdf"
-        preview = False;
+        preview = False
         unit = "mm"
         
         #Get values from parameters
@@ -58,14 +58,14 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         if('height' in query):
             height = query['height'][0]
         if('preview' in query):
-            preview = True;
+            preview = True
 
         if(l < 0 or t < 0 or width < 0 or height < 0):
             print "[processOperation] At least one page dimension not present, taking default"
-            pageDims = False;
+            pageDims = False
         else:
             pageDims = True
-            FACTOR = 3.93;
+            FACTOR = 3.93
             l = int(l) / FACTOR
             t = int(t) / FACTOR
             width = int(width) / FACTOR
@@ -86,34 +86,32 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
                     self.sendSuccessResponse(fileName + "." + format)
                 except subprocess.CalledProcessError:
                     print "[processOperation] Error scanning.", sys.exc_info()[0]
-                    self.sendErrorResponse("[processOperation] Error while trying to preview/scan. Check if the scanner is connected and powered up");
+                    self.sendErrorResponse("[processOperation] Error while trying to preview/scan. Check if the scanner is connected and powered up")
             else:
                 try:
                     print "[processOperation] Calling shell,", "scan.sh", fileName, format, scanMode, str(resolution), unit, str(l), str(t), str(width), str(height)
                     out = subprocess.check_output(["sh", "scan.sh", fileName, format, scanMode, str(resolution), unit, str(l), str(t), str(width), str(height)])
+                    print "[processOperation] ", out
                     self.sendSuccessResponse(fileName + "." + format)
                 except subprocess.CalledProcessError:
                     print "[processOperation] Error scanning.", sys.exc_info()[0]
-                    self.sendErrorResponse("[processOperation] Error while trying to preview or scan. Check if the scanner is connected and powered up");
-            
-            print "[processOperation] scanned, output from shell: ", out
-            
+                    self.sendErrorResponse("[processOperation] Error while trying to preview or scan. Check if the scanner is connected and powered up")
         else:
             self.send_response(500)
             self.send_header('Content-Type', 'text/html') #application/pdf
             self.end_headers()
             self.wfile.write("[processOperation] Unknown Operaton "+ operation)
             
-        self.wfile.close();
+        self.wfile.close()
         
     def sendSuccessResponse(self, fileName):
         self.send_response(200)
         self.send_header('Content-Type', 'text/html')
         self.end_headers()
-        self.wfile.write(fileName);
+        self.wfile.write(fileName)
     
     def sendErrorResponse(self, errorMessage):
         self.send_response(500)
         self.send_header('Content-Type', 'text/html')
         self.end_headers()
-        self.wfile.write(errorMessage);
+        self.wfile.write(errorMessage)
