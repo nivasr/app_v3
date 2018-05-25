@@ -1,77 +1,99 @@
 <DOCTYPE html>
-<html>
+	<html>
+
 	<head>
 		<title>Scan - pi de Nivas</title>
-		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/ui-lightness/jquery-ui.css" >
+		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/ui-lightness/jquery-ui.css">
 		<link rel="stylesheet" href="lib/cropper/cropper.css" type="text/css" />
-		<link rel="stylesheet" href="css/default.css" >
+		<link rel="stylesheet" href="css/default.css">
 	</head>
+
 	<body>
 		<h1>Scan</h1>
 		<form id="frmScan">
-			<ol>
-				<li>
-					<label>Name:</label>
-					<input type="text" name="fileName" />
-				</li>
-				<li id="scanModes">
-					<label>Mode:</label>
-					<input type="radio" id="modeColor" name="scanMode" checked="checked" value="color"><label class="secondaryLabel" for="modeColor">Color</label>
-					<input type="radio" id="modeGray" name="scanMode" value="gray"><label class="secondaryLabel" for="modeGray">Gray</label>
-				</li>
-				<li id="resolutions">
-					<label>Resolution:</label>
- 					<input type="radio" id="resolution75" name="resolution" value="75" checked="checked"><label class="secondaryLabel" for="resolution75">75</label>
-					<input type="radio" id="resolution100" name="resolution" value="100"><label class="secondaryLabel" for="resolution100">100</label>
-					<input type="radio" id="resolution200" name="resolution" value="200"><label class="secondaryLabel" for="resolution200">200</label>
-					<input type="radio" id="resolution300" name="resolution" value="300"><label class="secondaryLabel" for="resolution300">300</label>
-					<input type="radio" id="resolution600" name="resolution" value="600"><label class="secondaryLabel" for="resolution600">600</label>
-					<input type="radio" id="resolution1200" name="resolution" value="1200"><label class="secondaryLabel" for="resolution1200">1200</label>
-					<input type="radio" id="resolution2400" name="resolution" value="2400"><label class="secondaryLabel" for="resolution2400">2400</label>
-				</li>
-				<li id="formats">
-					<label>Format:</label>
-					<input type="radio" id="formatPDF" name="format" value="pdf" checked="checked"><label class="secondaryLabel" for="formatPDF">PDF</label>
-					<input type="radio" id="formatJPG" name="format" value="jpg"><label class="secondaryLabel" for="formatJPG">JPG</label>
-					<input type="radio" id="formatPNG" name="format" value="png"><label class="secondaryLabel" for="formatPNG">PNG</label>
-					<input type="radio" id="formatTIFF" name="format" value="tiff"><label class="secondaryLabel" for="formatTIFF">TIFF</label>
-				</li>
-			</ol>
-			<div class="error" id="error" style="display: none;">
-			</div>
+
 			<div class="actions" id="actions">
 
 				<button id="doPreview" title="Preview with resolution: 100dpi, mode: color, format: jpg. Scan will use actual selected values">
 					Preview
 				</button>
 
-                <ol id="coord" style="display:none; text-align: left;">
-                    <li>
-                        <label>Coordinates:</label>
-                        <ol>
-                            <li>
-                                <label>Top:</label>
-                                <input type="number" step=1 name="t" id="t"/>
-                                <label class="secondaryLabel"  style="width: 10%;">Left:</label>
-                                <input type="number" step=1 name="l" id="l"/>
-                            </li>
+				<ol id="coord" style="display:none; text-align: left;">
+					<li>
+						<label>Coordinates:</label>
+						<ol>
+							<li>
+								<label>Top:</label>
+								<input type="number" step=1 name="t" id="t" />
+								<label class="secondaryLabel" style="width: 10%;">Left:</label>
+								<input type="number" step=1 name="l" id="l" />
+							</li>
 
-                            <li>
-                                <label>Width:</label>
-                                <input type="number" step=1 name="width" id="width"/>
-                                <label class="secondaryLabel"  style="width: 10%;">Height:</label>
-                                <input type="number" step=1 name="height" id="height"/>
-                            </li>
-                        </ol>
-                    </li>
-                </ol>
+							<li>
+								<label>Width:</label>
+								<input type="number" step=1 name="width" id="width" />
+								<label class="secondaryLabel" style="width: 10%;">Height:</label>
+								<input type="number" step=1 name="height" id="height" />
+							</li>
+						</ol>
+					</li>
+				</ol>
 
+				<button id="showOptions">
+					Options
+				</button>
 
 				<button id="doScan">
 					Scan
 				</button>
 			</div>
-			
+
+
+			<ol id="options" style="display: none">
+				<li>
+					<label>Name:</label>
+					<input type="text" name="fileName" />
+				</li>
+				<li id="scanModes">
+					<label>Mode:</label>
+					<input type="radio" id="modeColor" name="scanMode" checked="checked" value="color">
+					<label class="secondaryLabel" for="modeColor">Color</label>
+					<input type="radio" id="modeGray" name="scanMode" value="gray">
+					<label class="secondaryLabel" for="modeGray">Gray</label>
+				</li>
+				<li id="resolutions">
+					<label>Resolution:</label>
+					<input type="radio" id="resolution75" name="resolution" value="75" checked="checked">
+					<label class="secondaryLabel" for="resolution75">75</label>
+					<input type="radio" id="resolution100" name="resolution" value="100">
+					<label class="secondaryLabel" for="resolution100">100</label>
+					<input type="radio" id="resolution200" name="resolution" value="200">
+					<label class="secondaryLabel" for="resolution200">200</label>
+					<input type="radio" id="resolution300" name="resolution" value="300">
+					<label class="secondaryLabel" for="resolution300">300</label>
+					<input type="radio" id="resolution600" name="resolution" value="600">
+					<label class="secondaryLabel" for="resolution600">600</label>
+					<input type="radio" id="resolution1200" name="resolution" value="1200">
+					<label class="secondaryLabel" for="resolution1200">1200</label>
+					<input type="radio" id="resolution2400" name="resolution" value="2400">
+					<label class="secondaryLabel" for="resolution2400">2400</label>
+				</li>
+				<li id="formats">
+					<label>Format:</label>
+					<input type="radio" id="formatPDF" name="format" value="pdf" checked="checked">
+					<label class="secondaryLabel" for="formatPDF">PDF</label>
+					<input type="radio" id="formatJPG" name="format" value="jpg">
+					<label class="secondaryLabel" for="formatJPG">JPG</label>
+					<input type="radio" id="formatPNG" name="format" value="png">
+					<label class="secondaryLabel" for="formatPNG">PNG</label>
+					<input type="radio" id="formatTIFF" name="format" value="tiff">
+					<label class="secondaryLabel" for="formatTIFF">TIFF</label>
+				</li>
+			</ol>
+			<div class="error" id="error" style="display: none;">
+			</div>
+
+
 			<ol id="download" style="display: none">
 				<li>
 					<label>Scanned Document:</label>
@@ -85,11 +107,11 @@
 					</ol>
 				</li>
 			</ol>
-			
-			
+
+
 		</form>
-		
-		<div id="preview" style="display:none; float: left;" >
+
+		<div id="preview" style="display:none; float: left;">
 			<img class="cropper" src="" id="previewImage" />
 		</div>
 
@@ -99,7 +121,7 @@
 		<script src="lib/cropper/cropper.js"></script>
 
 		<script>
-			$(function() {
+			$(function () {
 				$("#scanModes").buttonset();
 				$("#resolutions").buttonset();
 				$("#formats").buttonset();
@@ -108,120 +130,120 @@
 				$(document).tooltip();
 			});
 
-			$(document).ready(function() {
-					$("#doScan").click(function(event){
-						event.preventDefault();
-						requestScanAndGetFileName(scanCallback, null, false);
-					});
-					
-					$("#doPreview").click(function(event){
-						event.preventDefault();
-						
-						requestScanAndGetFileName(previewCallback, null, true);
-					});
+			$(document).ready(function () {
+				
+				$("#showOptions").click(function (event) {
+					event.preventDefault();
+					$("#options").show();
 				});
 				
-				function scanCallback(fileName)
-				{
-					var targetFile = document.location + "/" + fileName;
-					var win = window.open(targetFile);
-					if(!win) {
-						$("#downloadLink").html("<a href = '" + targetFile+"' target = '_new'>" + fileName + "</a>");
-						$("#download").show();
-					}
+				$("#doScan").click(function (event) {
+					event.preventDefault();
+					requestScanAndGetFileName(scanCallback, null, false);
+				});
+
+				$("#doPreview").click(function (event) {
+					event.preventDefault();
+
+					requestScanAndGetFileName(previewCallback, null, true);
+				});
+			});
+
+			function scanCallback(fileName) {
+				var targetFile = document.location + "/" + fileName;
+				var win = window.open(targetFile);
+				if (!win) {
+					$("#downloadLink").html("<a href = '" + targetFile + "' target = '_new'>" + fileName + "</a>");
+					$("#download").show();
 				}
-				
-				function previewCallback(fileName)
-				{
-					//$("#previewImage").cropper("destroy");
-					$("#previewImage").attr("src", document.location + "/" + fileName);
-					$("#coord").show();
-					$("#preview").show();
-					$("#previewImage").cropper({
-						//aspectRatio: 1.618,
-						modal: true,
-						done: function(data) {
-							//console.log(data);
-							showCoords(data);
-					  	}
+			}
+
+			function previewCallback(fileName) {
+				//$("#previewImage").cropper("destroy");
+				$("#previewImage").attr("src", document.location + "/" + fileName);
+				$("#coord").show();
+				$("#preview").show();
+				$("#previewImage").cropper({
+					//aspectRatio: 1.618,
+					modal: true,
+					done: function (data) {
+						//console.log(data);
+						showCoords(data);
+					}
+				});
+			}
+
+			function showCoords(c) {
+				$('#l').val(c.x);
+				$('#t').val(c.y);
+				$('#width').val(c.width);
+				$('#height').val(c.height);
+			}
+
+			function requestScanAndGetFileName(successCallBack, errorCallBack, preview) {
+				$("#error").hide();
+				var data = $("#frmScan").serialize();
+				$("#doScan").prop("disabled", true);
+				$("#doScan").css("cursor", "not-allowed");
+				$("#doPreview").prop("disabled", true);
+				$("#doPreview").css("cursor", "not-allowed");
+				$("#download").hide();
+				$("#downloadLink").html("");
+
+				var target = document.getElementById("frmScan");
+				getSpinner().spin(target);
+
+				$.get(document.location + "?operation=scan&" + (preview ? "preview=y&" : "") + data,
+					function () {
+					})
+					.error(function (data) {
+						getSpinner().stop();
+						$("#doScan").show();
+						$("#doPreview").show();
+						if (errorCallBack)
+							errorCallBack(data);
+						else {
+							$("#error").show();
+							$("#error").html("Error, please check if scanner is connected and powered on");
+						}
+					})
+					.done(function (data) {
+						getSpinner().stop();
+						$("#doScan").prop("disabled", false);
+						$("#doScan").css("cursor", "pointer");
+						$("#doPreview").prop("disabled", true);
+						$("#doPreview").css("cursor", "pointer");
+						successCallBack(data);
 					});
-				}
-				
-				function showCoords(c)
-				{
-					$('#l').val(c.x);
-					$('#t').val(c.y);
-					$('#width').val(c.width);
-					$('#height').val(c.height);
-				}
-				
-				function requestScanAndGetFileName(successCallBack, errorCallBack, preview)
-				{
-					$("#error").hide();
-					var data = $("#frmScan").serialize();
-					$("#doScan").prop("disabled", true);
-					$("#doScan").css("cursor", "not-allowed");
-					$("#doPreview").prop("disabled", true);
-					$("#doPreview").css("cursor", "not-allowed");
-					$("#download").hide();
-					$("#downloadLink").html("");
-					
-					var target = document.getElementById("frmScan");
-			   		getSpinner().spin(target);
+			}
 
-					$.get(document.location + "?operation=scan&"+(preview?"preview=y&":"") + data, 
-							function() {
-							})
-							.error(function(data) {
-								getSpinner().stop();
-								$("#doScan").show();
-								$("#doPreview").show();
-								if(errorCallBack)
-									errorCallBack(data);
-								else
-								{	
-									$("#error").show();
-									$("#error").html("Error, please check if scanner is connected and powered on");
-								}
-							})
-							.done(function(data) {
-								getSpinner().stop();
-								$("#doScan").prop("disabled", false);
-								$("#doScan").css("cursor", "pointer");
-								$("#doPreview").prop("disabled", true);
-								$("#doPreview").css("cursor", "pointer");
-								successCallBack(data);
-							});
+			var spinner;
+			function getSpinner() {
+				if (!spinner) {
+					//http://fgnass.github.io/spin.js
+					var opts = {
+						lines: 13, // The number of lines to draw
+						length: 10, // The length of each line
+						width: 5, // The line thickness
+						radius: 10, // The radius of the inner circle
+						corners: 1, // Corner roundness (0..1)
+						rotate: 0, // The rotation offset
+						direction: 1, // 1: clockwise, -1: counterclockwise
+						color: '#000', // #rgb or #rrggbb or array of colors
+						speed: 0.9, // Rounds per second
+						trail: 60, // Afterglow percentage
+						shadow: false, // Whether to render a shadow
+						hwaccel: false, // Whether to use hardware acceleration
+						className: 'spinner', // The CSS class to assign to the spinner
+						zIndex: 2e9, // The z-index (defaults to 2000000000)
+						top: '50%', // Top position relative to parent
+						left: '50%' // Left position relative to parent
+					};
+					spinner = new Spinner(opts);
 				}
-
-				var spinner;
-				function getSpinner()
-				{
-					if(!spinner)
-					{
-						//http://fgnass.github.io/spin.js
-						var opts = {
-							lines: 13, // The number of lines to draw
-							length: 10, // The length of each line
-							width: 5, // The line thickness
-							radius: 10, // The radius of the inner circle
-							corners: 1, // Corner roundness (0..1)
-							rotate: 0, // The rotation offset
-							direction: 1, // 1: clockwise, -1: counterclockwise
-							color: '#000', // #rgb or #rrggbb or array of colors
-							speed: 0.9, // Rounds per second
-							trail: 60, // Afterglow percentage
-							shadow: false, // Whether to render a shadow
-							hwaccel: false, // Whether to use hardware acceleration
-							className: 'spinner', // The CSS class to assign to the spinner
-							zIndex: 2e9, // The z-index (defaults to 2000000000)
-							top: '50%', // Top position relative to parent
-							left: '50%' // Left position relative to parent
-						};
-						spinner = new Spinner(opts);
-					}
-					return spinner;
-				}
+				return spinner;
+			}
 		</script>
 	</body>
-</html>
+
+	</html>
