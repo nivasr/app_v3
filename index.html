@@ -14,6 +14,11 @@
 
 			<div class="actions" id="actions">
 
+				<button id="showOptions" style="float:left">
+					Options
+				</button>
+
+
 				<button id="doPreview" title="Preview with resolution: 100dpi, mode: color, format: jpg. Scan will use actual selected values">
 					Preview
 				</button>
@@ -39,9 +44,6 @@
 					</li>
 				</ol>
 
-				<button id="showOptions">
-					Options
-				</button>
 
 				<button id="doScan">
 					Scan
@@ -97,17 +99,16 @@
 			<ol id="download" style="display: none">
 				<li>
 					<label>Scanned Document:</label>
-					<ol>
-						<li>
-							<span id="downloadLink"></span>
-						</li>
-						<li style="font-style: italic;color: #777777; font-size: .75em;">
-							(Allow pop-ups for automatic downloads)
-						</li>
-					</ol>
+					<span id="downloadLink">
+						<a href="http://192.168.0.11:8000//scans/scan.pdf" target="_new">scans/scan.pdf</a>
+						<label>
+							<p style="font-style: italic;color: #777777; font-size: .75em;">
+								(Allow pop-ups for automatic downloads)
+							</p>
+						</label>
+					</span>
 				</li>
 			</ol>
-
 
 		</form>
 
@@ -132,12 +133,12 @@
 			});
 
 			$(document).ready(function () {
-				
+
 				$("#showOptions").click(function (event) {
 					event.preventDefault();
 					$("#options").toggle();
 				});
-				
+
 				$("#doScan").click(function (event) {
 					event.preventDefault();
 					requestScanAndGetFileName(scanCallback, null, false);

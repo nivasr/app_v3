@@ -10,10 +10,10 @@ width=$8
 height=$9
 
 if [ -z "$l" ] || [ -z "$t" ] || [ -z "$width" ] || [ -z "$height" ] ; then
-    echo "calling scanimage --format=tiff --mode=$scanMode --resolution=${resolution}dpi \> ${fileName}.tiff";
+    echo "calling scanimage --format=tiff --mode=$scanMode --resolution=${resolution}dpi > ${fileName}.tiff";
     scanimage --format=tiff --mode=$scanMode --resolution=${resolution}dpi > ${fileName}.tiff;
 else
-    echo "calling scanimage --format=tiff --mode=$scanMode -l $l -t $t -x $width -y $height --resolution=${resolution}dpi \> ${fileName}.tiff";
+    echo "calling scanimage --format=tiff --mode=$scanMode -l $l -t $t -x $width -y $height --resolution=${resolution}dpi > ${fileName}.tiff";
     scanimage --format=tiff --mode=$scanMode -l $l -t $t -x $width -y $height --resolution=${resolution}dpi > ${fileName}.tiff;
 fi
 
