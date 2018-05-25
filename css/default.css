@@ -86,3 +86,11 @@ i.cog
 {
     color: #1c94c4;
 }
+
+#showOptions
+{
+    float: left;
+    border: none;
+    background-color: #ffffff;
+    cursor: pointer;
+}
