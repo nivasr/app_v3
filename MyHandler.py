@@ -83,7 +83,7 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
                     out = subprocess.check_output(["sh", "scan.sh", fileName, format, scanMode, str(resolution), unit])
                     print "[processOperation] ", out
                     self.sendSuccessResponse(fileName + "." + format)
-                except CalledProcessError:
+                except subprocess.CalledProcessError:
                     print "[processOperation] Error scanning.", sys.exc_info()[0]
                     self.sendErrorResponse("[processOperation] Error while trying to preview/scan. Check if the scanner is connected and powered up");
             else:
@@ -91,7 +91,7 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
                     print "[processOperation] Calling shell,", "scan.sh", fileName, format, scanMode, str(resolution), unit, str(l), str(t), str(width), str(height)
                     out = subprocess.check_output(["sh", "scan.sh", fileName, format, scanMode, str(resolution), unit, str(l), str(t), str(width), str(height)])
                     self.sendSuccessResponse(fileName + "." + format)
-                except CalledProcessError:
+                except subprocess.CalledProcessError:
                     print "[processOperation] Error scanning.", sys.exc_info()[0]
                     self.sendErrorResponse("[processOperation] Error while trying to preview or scan. Check if the scanner is connected and powered up");
             
