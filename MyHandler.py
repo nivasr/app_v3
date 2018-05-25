@@ -60,7 +60,7 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
             preview = True;
 
         if(l < 0 or t < 0 or width < 0 or height < 0):
-            print "[processOperation]At least one Page Dim not present, taking default"
+            print "[processOperation] At least one Page Dim not present, taking default"
             pageDims = False;
         else:
             pageDims = True
@@ -75,8 +75,7 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
             resolution = 100
             print '[processOperation] Preview mode, defaulting format to jpg and resolution to 100'
             
-        print "[processOperation] Params: [fileName, format, operation, scanMode, resolution, l, t, width, height, preview, unit]:"
-        print "[processOperation] Params:", fileName, format, operation, scanMode, resolution, l, t, width, height, preview, unit
+        print "[processOperation] Params: fileName: {}, format: {}, operation: {}, scanMode: {}, resolution: {}, left: {}, top: {}, width: {}, height: {}, preview: {}, unit: {}".format(fileName, format, operation, scanMode, resolution, l, t, width, height, preview, unit)
         
         if operation == "scan":
             if(l < 0 or t < 0 or width < 0 or height < 0):

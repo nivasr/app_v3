@@ -24,5 +24,5 @@ fi
 #    #not a known format, default to pdf
 #    format= "pdf"
 #fi
-echo "converting to " format
+echo "[scan.sh] converting to " $format
 convert ${fileName}.tiff ${fileName}.${format}
