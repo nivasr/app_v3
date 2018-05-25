@@ -2,6 +2,7 @@ import SimpleHTTPServer
 import urlparse
 import cgi
 import subprocess
+import sys
 
 class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 
