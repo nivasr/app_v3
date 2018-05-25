@@ -94,3 +94,16 @@ i.cog
     background-color: #ffffff;
     cursor: pointer;
 }
+
+
+@media (max-width: 600px) 
+{
+    form
+    {
+        font-size: 2em;
+        margin: 2em;
+        border: 1px solid #ededed;
+        width: 35em;
+        float: left;
+    }
+}
