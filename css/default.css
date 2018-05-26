@@ -94,7 +94,7 @@ i.cog
     cursor: pointer;
 }
 
-#doPreview, #doScan
+#doScan
 {
     float: right;
 }
