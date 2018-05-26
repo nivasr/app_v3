@@ -105,7 +105,11 @@ i.cog
     form
     {
         border: 1px solid #ededed;
-        width: 14em;
         float: left;
+    }
+
+    #doScan
+    {
+        width: 80%;
     }
 }
