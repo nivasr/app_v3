@@ -47,7 +47,6 @@ form ol li ol li
 
 div.actions
 {
-    text-align: right;
     margin: .5em;
 }
 
@@ -95,6 +94,12 @@ i.cog
     cursor: pointer;
 }
 
+#doPreview, #doScan
+{
+    float: right;
+}
+
+
 
 @media (max-width: 600px) 
 {
@@ -107,10 +112,12 @@ i.cog
         border: 1px solid #ededed;
         float: left;
         margin: 0;
+        width: auto;
     }
 
     #doScan
     {
         width: 80%;
+        float: none;
     }
 }
