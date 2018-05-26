@@ -121,4 +121,9 @@ i.cog
         margin-top: .5em;
         float: none;
     }
+
+    #doPreview
+    {
+        float: right;
+    }
 }
