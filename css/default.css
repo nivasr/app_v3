@@ -126,4 +126,9 @@ i.cog
     {
         float: right;
     }
+
+    #preview
+    {
+        margin: .3em;
+    }
 }
