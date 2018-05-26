@@ -98,12 +98,14 @@ i.cog
 
 @media (max-width: 600px) 
 {
-    form
+    body
     {
         font-size: 2em;
-        margin: 2em;
+    }
+    form
+    {
         border: 1px solid #ededed;
-        width: 35em;
+        width: 14em;
         float: left;
     }
 }
