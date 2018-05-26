@@ -112,7 +112,7 @@ i.cog
         border: 1px solid #ededed;
         float: left;
         margin: 0;
-        width: auto;
+        width: 100%;
     }
 
     #doScan
