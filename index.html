@@ -17,6 +17,9 @@
 				<button id="showOptions" style="float:left">
 					<i class="material-icons">settings</i>
 				</button>
+				<button id="coordsButton" style="float:left">
+					<i class="material-icons">tune</i>
+				</button>
 
 
 				<button id="doPreview" title="Preview with resolution: 100dpi, mode: color, format: jpg. Scan will use actual selected values">
@@ -140,6 +143,10 @@
 					$("#options").toggle();
 				});
 
+				$("#coordsButton").click(function (event) {
+					$("#coord").toggle();
+				});
+
 				$("#doScan").click(function (event) {
 					event.preventDefault();
 					requestScanAndGetFileName(scanCallback, null, false);
@@ -164,7 +171,6 @@
 			function previewCallback(fileName) {
 				//$("#previewImage").cropper("destroy");
 				$("#previewImage").attr("src", document.location + "/" + fileName);
-				$("#coord").show();
 				$("#preview").show();
 				$("#previewImage").cropper({
 					//aspectRatio: 1.618,
