@@ -86,7 +86,7 @@ i.cog
     color: #1c94c4;
 }
 
-#showOptions
+#showOptions, #coordsButton
 {
     float: left;
     border: none;
