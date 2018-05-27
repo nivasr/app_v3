@@ -28,3 +28,6 @@ A simple application to make a scanner remotely available, typically to be used 
 - `scan.sh` has calls to `scanimage` with various parameters. [`scanImage`](http://www.sane-project.org/man/scanimage.1.html) is the [sane](http://www.sane-project.org/man/sane.7.html) command line interface
 - `simpleServerWithHandler.py`: A simple python http server
 - `index.html` - a simple UI for the scan
+
+### Credits
+- Favicon from https://www.iconfinder.com/icons/2318001/machine_media_multimedia_office_scan_scanner_scanning_icon#size=512
