@@ -13,14 +13,16 @@ A simple application to make a scanner remotely available, typically to be used 
 ### Features
 - Preview and Scan
 - Change dimensions/crop
-- Custom name
+- Custom name for the (to be) scanned document
+- Color/Grayscale scanning.
 - Multiple formats: pdf, jpg, png, tiff. The scan itself is in tiff and is converted to one of these formats.
 - Multiple resolutions: 75, 100, 200, 300, 600, 1200, 2400. Resolutions are dependent on the scanner. 
 
 ### Future
 - Allow paper size selections
 - Better paper dimension handling
-- A bot more beautification
+- Multi page scanning and saving to single/multiple files without the need to click multiple times.
+- A bot more beautification of the UI
 
 ### What it does
 - `scan.sh` has calls to `scanimage` with various parameters. [`scanImage`](http://www.sane-project.org/man/scanimage.1.html) is the [sane](http://www.sane-project.org/man/sane.7.html) command line interface
